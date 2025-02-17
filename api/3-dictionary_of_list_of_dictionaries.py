@@ -4,6 +4,7 @@ import json
 import requests
 
 
+
 def get_all_users():
     """Get the list of all users"""
     url = "https://jsonplaceholder.typicode.com/users"
@@ -20,8 +21,7 @@ def get_user_todos(user_id):
 
 def export_all_todos_to_json(users):
     """Export all users' TODO lists to a JSON file"""
-    data = {
-        user["id"]: [
+    data = {user["id"]: [
             {
                 "task": todo["title"],
                 "completed": todo["completed"],
