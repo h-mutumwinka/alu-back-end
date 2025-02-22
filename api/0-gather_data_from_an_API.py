@@ -1,25 +1,33 @@
 #!/usr/bin/python3
-"""Python script that returns TODO list progress for a given employee ID"""
+"""
+Python script that returns TODO list progress for a given employee ID
+"""
 import requests
 from sys import argv
 
 
 def get_employee_info(employee_id):
-    """Get employee information by employee ID"""
+    """
+    Get employee information by employee ID
+    """
     url = f'https://jsonplaceholder.typicode.com/users/{employee_id}/'
     response = requests.get(url)
     return response.json()
 
 
 def get_employee_todos(employee_id):
-    """Get the TODO list of the employee by employee ID"""
+    """
+    Get the TODO list of the employee by employee ID
+    """
     url = f'https://jsonplaceholder.typicode.com/users/{employee_id}/todos'
     response = requests.get(url)
     return response.json()
 
 
 def main(employee_id):
-    """Main function to fetch and display the TODO list progress of the employee"""
+    """
+    Main function to fetch and display the TODO list progress of the employee
+    """
     employee = get_employee_info(employee_id)
     employee_name = employee.get("name")
 
